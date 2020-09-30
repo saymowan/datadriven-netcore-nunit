@@ -9,8 +9,9 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
   
-
 steps:
+- task: UseDotNet@2
+  displayName: 'Use .NET Core sdk '
 
 - task: DotNetCoreCLI@2
   inputs:
@@ -26,7 +27,3 @@ steps:
   inputs:
     command: 'test'
 
-- task: PublishPipelineArtifact@1
-  inputs:
-    targetPath: 'RestSharpNetCoreTemplate/bin/Debug/netcoreapp3.1/Reports'
-    publishLocation: 'pipeline'
